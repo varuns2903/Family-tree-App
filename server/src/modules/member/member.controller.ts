@@ -1,8 +1,7 @@
-import { Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import { MemberService } from "./member.service";
-import { AuthRequest } from "../../middlewares/auth.middleware";
 
-export const createFirstMember = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const createFirstMember = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const member = await MemberService.createFirstMember(
       req.params.treeId,
@@ -15,7 +14,7 @@ export const createFirstMember = async (req: AuthRequest, res: Response, next: N
   }
 };
 
-export const addChild = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const addChild = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await MemberService.addChild(
       req.params.memberId,
@@ -31,7 +30,7 @@ export const addChild = async (req: AuthRequest, res: Response, next: NextFuncti
   }
 };
 
-export const addParent = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const addParent = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await MemberService.addParent(
       req.params.memberId,
@@ -47,7 +46,7 @@ export const addParent = async (req: AuthRequest, res: Response, next: NextFunct
   }
 };
 
-export const addSibling = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const addSibling = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await MemberService.addSibling(
       req.params.memberId,
@@ -60,7 +59,7 @@ export const addSibling = async (req: AuthRequest, res: Response, next: NextFunc
   }
 };
 
-export const addSpouse = async (req: AuthRequest, res: Response, next: NextFunction) => {
+export const addSpouse = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await MemberService.addSpouse(
       req.params.memberId,

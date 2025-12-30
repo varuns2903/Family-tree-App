@@ -1,9 +1,8 @@
-import { Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from "express";
 import { TreeService } from "./tree.service";
-import { AuthRequest } from "../../middlewares/auth.middleware";
 
 export const createTree = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -17,7 +16,7 @@ export const createTree = async (
 };
 
 export const getTrees = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -30,7 +29,7 @@ export const getTrees = async (
 };
 
 export const getTreeById = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
