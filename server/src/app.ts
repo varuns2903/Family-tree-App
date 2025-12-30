@@ -3,6 +3,7 @@ import cors from "cors";
 import { errorMiddleware } from "./middlewares/error.middleware";
 
 import authRoutes from "./modules/auth/auth.routes";
+import treeRoutes from "./modules/tree/tree.routes";
 
 export const app = express();
 
@@ -17,6 +18,7 @@ app.get("/health", (_req, res) => {
 
 // Routes
 app.use("/auth", authRoutes);
+app.use("/trees", treeRoutes);
 
 // Global error handler
 app.use(errorMiddleware);
