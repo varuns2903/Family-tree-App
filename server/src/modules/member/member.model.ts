@@ -19,7 +19,11 @@ export interface IMember extends mongoose.Document {
   parents: mongoose.Types.ObjectId[];
   children: mongoose.Types.ObjectId[];
   spouses: mongoose.Types.ObjectId[];
+
+  createdAt: Date;
+  updatedAt: Date;
 }
+
 
 const MemberSchema = new mongoose.Schema<IMember>(
   {

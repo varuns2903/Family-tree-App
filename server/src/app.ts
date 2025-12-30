@@ -5,6 +5,7 @@ import { errorMiddleware } from "./middlewares/error.middleware";
 import authRoutes from "./modules/auth/auth.routes";
 import treeRoutes from "./modules/tree/tree.routes";
 import memberRoutes from "./modules/member/member.routes";
+import memberReadRoutes from "./modules/member/member.read.routes";
 
 export const app = express();
 
@@ -21,6 +22,7 @@ app.get("/health", (_req, res) => {
 app.use("/auth", authRoutes);
 app.use("/trees", treeRoutes);
 app.use("/", memberRoutes);
+app.use("/", memberReadRoutes);
 
 // Global error handler
 app.use(errorMiddleware);
