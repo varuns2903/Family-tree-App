@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { ProtectedRoute } from "../components/common/ProtectedRoute";
+import { AppLayout } from "../components/layout/AppLayout";
 
 import Landing from "../pages/Landing";
 import Login from "../pages/Auth/Login";
@@ -17,7 +18,9 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <ProtectedRoute>
-        <Dashboard />
+        <AppLayout>
+          <Dashboard />
+        </AppLayout>
       </ProtectedRoute>
     ),
   },
@@ -26,7 +29,9 @@ export const router = createBrowserRouter([
     path: "/trees/:treeId",
     element: (
       <ProtectedRoute>
-        <TreeViewerPage />
+        <AppLayout>
+          <TreeViewerPage />
+        </AppLayout>
       </ProtectedRoute>
     ),
   },
