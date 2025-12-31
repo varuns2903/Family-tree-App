@@ -8,6 +8,7 @@ export const protect = (
   next: NextFunction
 ) => {
   const authHeader = req.headers.authorization;
+
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     const err: any = new Error("Not authenticated");
     err.statusCode = 401;
@@ -16,6 +17,7 @@ export const protect = (
   }
 
   const token = authHeader.split(" ")[1];
+
   try {
     const decoded = jwt.verify(token, env.JWT_SECRET) as any;
     req.userId = decoded.userId;
